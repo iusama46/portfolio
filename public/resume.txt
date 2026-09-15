@@ -1,3 +1,0 @@
-Resume placeholder
-
-Replace this file with the final resume PDF and update `resumeUrl` in `src/data/site.ts`.

@@ -15,4 +15,4 @@ Open [http://localhost:3000](http://localhost:3000).
 
 - Update project details in `src/data/projects.ts`.
 - Place supplied screenshots in `public/images/projects/` and update each project's `image` field.
-- Replace the placeholder identity, contact address, social links, and resume link in `src/data/site.ts`.
+- Update contact details and the résumé URL in `src/data/site.ts` when they are available.

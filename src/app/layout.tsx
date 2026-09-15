@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Senior Software Engineer · Portfolio",
+  title: "Usama Iftikhar · Senior Software Engineer",
   description:
-    "A project-focused portfolio for a Senior Software Engineer based in the UAE.",
+    "Project-focused portfolio of Usama Iftikhar, Senior Software Engineer based in the UAE.",
 };
 
 export default function RootLayout({

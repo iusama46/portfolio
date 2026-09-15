@@ -5,13 +5,7 @@ import { ProjectCard } from "@/components/project-card";
 import { ProjectPreview } from "@/components/project-preview";
 import { SectionHeading } from "@/components/section-heading";
 import { projects } from "@/data/projects";
-import { siteConfig } from "@/data/site";
-
-const capabilities = [
-  { number: "01", title: "Mobile", items: ["React Native", "Flutter", "iOS & Android"] },
-  { number: "02", title: "Web", items: ["React", "Next.js", "TypeScript"] },
-  { number: "03", title: "Product", items: ["Design systems", "API integration", "Performance"] },
-];
+import { siteConfig, technologyGroups } from "@/data/site";
 
 export default function Home() {
   const [firstProject, ...otherProjects] = projects;
@@ -22,19 +16,27 @@ export default function Home() {
 
       <section className="hero shell">
         <div className="hero-copy">
-          <p className="eyebrow"><span className="presence-dot" /> Available for the right product challenges</p>
+          <p className="eyebrow"><span className="presence-dot" /> Senior Software Engineer · UAE</p>
           <h1>
-            Software that feels <em>considered</em> at every touchpoint.
+            Engineering<br />mobile &amp; web<br />products that<br /><em>scale.</em>
           </h1>
           <p className="hero-intro">
-            {siteConfig.role} focused on building purposeful mobile and web products with
-            React Native, React, Next.js, and Flutter.
+            Senior Software Engineer specializing in React Native, React, Next.js, and
+            Flutter, building production products across PropTech, FinTech, Logistics, and SaaS.
           </p>
           <div className="hero-actions">
             <a className="button button-primary" href="#projects">
               Explore selected work <Icon name="arrow-down" />
             </a>
-            <a className="text-link" href="#contact">Start a conversation <Icon name="arrow-up-right" /></a>
+            {siteConfig.resumeUrl ? (
+              <a className="text-link" href={siteConfig.resumeUrl} download>
+                Download résumé <Icon name="download" />
+              </a>
+            ) : (
+              <span className="text-link text-link-disabled" aria-disabled="true">
+                Download résumé <Icon name="download" />
+              </span>
+            )}
           </div>
         </div>
         <div className="hero-visual">
@@ -57,15 +59,18 @@ export default function Home() {
           <SectionHeading eyebrow="Profile" title="An engineer who thinks in systems, not screens." />
           <div className="about-copy">
             <p>
-              Based in the United Arab Emirates, I work across the mobile and web
-              stack—bringing product ideas into clear, maintainable experiences.
+              I build mobile and web products with a focus on architecture, performance,
+              maintainability, and user experience. My work spans React Native, React,
+              Next.js, and Flutter across PropTech, FinTech, logistics, SaaS, and other
+              product environments.
             </p>
             <p>
-              The strongest work is deliberate: familiar where it should be, distinct
-              where it matters, and resilient long after launch.
+              I enjoy working beyond individual screens — understanding the product, its
+              users, backend interactions, release requirements, and the systems that keep
+              applications reliable as they grow.
             </p>
-            <a className="inline-link" href="#contact">
-              Work together <Icon name="arrow-up-right" />
+            <a className="inline-link" href={siteConfig.github} target="_blank" rel="noreferrer">
+              View GitHub <Icon name="arrow-up-right" />
             </a>
           </div>
         </div>
@@ -74,10 +79,10 @@ export default function Home() {
       <section className="capabilities-section shell" id="stack">
         <div className="capabilities-heading">
           <p className="eyebrow">Core toolkit</p>
-          <p>Tools chosen for thoughtful, cross-platform product delivery.</p>
+          <p>A focused toolkit for mobile and web product development.</p>
         </div>
         <div className="capability-list">
-          {capabilities.map((capability) => (
+          {technologyGroups.map((capability) => (
             <article className="capability" key={capability.number}>
               <span>{capability.number}</span>
               <h3>{capability.title}</h3>
@@ -110,21 +115,20 @@ export default function Home() {
         <div className="shell experience-grid">
           <SectionHeading
             eyebrow="Experience"
-            title="A career story, ready for the detail."
-            copy="Confirmed roles, companies, and dates can be added here once provided."
+            title="Production experience across products and platforms."
+            copy="Building and maintaining mobile and web applications across multiple product domains."
           />
-          <div className="experience-placeholder">
+          <div className="experience-summary">
             <div className="experience-role">
               <span className="presence-dot" />
               <div>
                 <p>Senior Software Engineer</p>
-                <span>Experience details to be added</span>
+                <span>Mobile and web product development</span>
               </div>
             </div>
             <div className="experience-divider" />
             <p className="small-copy">
-              This section intentionally avoids unverified company names, dates, and
-              achievements. It is designed to accept your confirmed career timeline.
+              PropTech · FinTech · Logistics · SaaS
             </p>
           </div>
         </div>
@@ -133,16 +137,20 @@ export default function Home() {
       <section className="contact-section" id="contact">
         <div className="shell contact-card">
           <div>
-            <p className="eyebrow">Contact</p>
+            <p className="eyebrow">Contact · {siteConfig.name}</p>
             <h2>Let&apos;s make the next interaction feel obvious.</h2>
           </div>
           <div className="contact-actions">
-            <a className="button button-light" href={`mailto:${siteConfig.email}`}>
-              <Icon name="mail" /> {siteConfig.email}
+            <a className="button button-light" href={siteConfig.github} target="_blank" rel="noreferrer">
+              GitHub <Icon name="arrow-up-right" />
             </a>
-            <a className="resume-link" href={siteConfig.resumeUrl} download>
-              <Icon name="download" /> Download résumé <small>placeholder</small>
-            </a>
+            {siteConfig.resumeUrl ? (
+              <a className="resume-link" href={siteConfig.resumeUrl} download>
+                <Icon name="download" /> Download résumé
+              </a>
+            ) : (
+              <span className="resume-link" aria-disabled="true"><Icon name="download" /> Download résumé</span>
+            )}
             <p><Icon name="pin" /> {siteConfig.location}</p>
           </div>
         </div>

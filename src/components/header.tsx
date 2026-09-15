@@ -7,7 +7,10 @@ export function Header() {
       <div className="shell header-inner">
         <a className="wordmark" href="#top" aria-label="Back to top">
           <span className="wordmark-mark">{siteConfig.name.slice(0, 1)}</span>
-          <span>{siteConfig.role}</span>
+          <span className="wordmark-copy">
+            <strong>{siteConfig.name}</strong>
+            <small>{siteConfig.role}</small>
+          </span>
         </a>
 
         <nav className="desktop-nav" aria-label="Main navigation">

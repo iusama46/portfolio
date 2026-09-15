@@ -43,7 +43,7 @@ export function ProjectPreview({
       {large ? (
         <>
           <Image
-            alt="Conceptual product device mockups used as a placeholder"
+            alt="Conceptual product device mockups"
             className="preview-image"
             fill
             priority
@@ -52,7 +52,7 @@ export function ProjectPreview({
             style={{ objectPosition: project.imagePosition }}
           />
           <div className="preview-wash" />
-          <span className="preview-caption">Project visual placeholder</span>
+          <span className="preview-caption">Project visual</span>
         </>
       ) : null}
       <div className="preview-orbit preview-orbit-one" />
