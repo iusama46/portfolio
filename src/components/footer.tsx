@@ -5,7 +5,7 @@ export function Footer() {
     <footer className="site-footer">
       <div className="shell footer-inner">
         <span>© {siteConfig.copyrightYear} {siteConfig.name}</span>
-        <span>Built with intention in the UAE.</span>
+        <span>Based in the UAE · Open to opportunities worldwide.</span>
         <a href="#top">Back to top ↑</a>
       </div>
     </footer>

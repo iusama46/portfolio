@@ -3,7 +3,16 @@ export type ProjectLink = {
   href: string;
 };
 
+export type ProjectScreenshot = {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+};
+
 export type Project = {
+  screenshots?: ProjectScreenshot[];
+  presentation?: "mobile" | "desktop";
   slug: string;
   name: string;
   category: string;
@@ -79,7 +88,7 @@ export const projects: Project[] = [
     visual: "analytics",
     links: [],
     status: "Private / not publicly released",
-    featured: true,
+    featured: false,
   },
   {
     slug: "makyee-tokenization",
@@ -102,6 +111,7 @@ export const projects: Project[] = [
   },
   {
     slug: "delivery-platform",
+    featured: true,
     name: "Delivery Platform",
     category: "Logistics / Food Delivery / Grocery",
     description:
@@ -133,7 +143,7 @@ export const projects: Project[] = [
   },
   {
     slug: "mumbai-spices",
-    name: "Mumbai Spices",
+    name: "Mumbai Spices – Bahrain",
     category: "Food & Restaurant / E-commerce",
     description:
       "A mobile ordering application for Mumbai Spices Bahrain, for browsing and ordering food on iOS and Android.",
@@ -150,6 +160,8 @@ export const projects: Project[] = [
   },
   {
     slug: "fleet-master",
+    featured: true,
+    presentation: "desktop",
     name: "Fleet Master",
     category: "Fleet Management / Enterprise SaaS",
     description:
@@ -174,6 +186,8 @@ export const projects: Project[] = [
   },
   {
     slug: "queue",
+    featured: true,
+    presentation: "desktop",
     name: "Queue",
     category: "SaaS / Queue & Booking Management",
     description:
