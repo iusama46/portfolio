@@ -12,6 +12,9 @@ import { Experience } from "@/components/experience";
 export default function Home() {
   const firstProject = projects[0];
   const featuredProjects = projects.filter((project) => project.featured);
+  // Temporary contact details for the redesigned Contact section.
+  const contactEmail = siteConfig.email ?? "iusama46@gmail.com";
+  const contactLinkedin = siteConfig.linkedin ?? "https://www.linkedin.com/in/iusama46/";
 
   return (
     <>
@@ -114,25 +117,37 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="contact-section" id="contact">
+        <section className="contact-section" id="contact" aria-labelledby="contact-heading">
           <div className="shell contact-card">
             <div>
               <p className="eyebrow">Contact · {siteConfig.name}</p>
-              <h2>Let&apos;s build products that scale.</h2>
-              <p className="contact-copy">I&apos;m open to software engineering opportunities and collaborations where strong product thinking and reliable engineering matter.</p>
+              <h2 id="contact-heading">Let&apos;s build products<br />that scale.</h2>
+              <p className="contact-copy">I&apos;m open to software engineering opportunities and product collaborations where strong product thinking and reliable engineering matter.</p>
             </div>
             <div className="contact-actions">
-              {siteConfig.email && <a className="inline-link" href={`mailto:${siteConfig.email}`}>Email <Icon name="mail" /></a>}
-              {siteConfig.linkedin && <a className="inline-link" href={siteConfig.linkedin} target="_blank" rel="noreferrer">LinkedIn <Icon name="arrow-up-right" /></a>}
-              <a className="button button-light" href={siteConfig.github} target="_blank" rel="noreferrer">
-                GitHub <Icon name="arrow-up-right" />
-              </a>
-              {siteConfig.resumeUrl ? (
-                <a className="resume-link" href={siteConfig.resumeUrl} download>
-                  <Icon name="download" /> Download résumé
+              <div className="contact-dots" aria-hidden="true">
+                {Array.from({ length: 16 }, (_, index) => <span key={index} />)}
+              </div>
+              {contactEmail && (
+                <a className="button button-primary contact-email" href={`mailto:${contactEmail}`}>
+                  Email me <Icon name="arrow-up-right" />
                 </a>
-              ) : null}
-              <p><Icon name="pin" /> {siteConfig.location}</p>
+              )}
+              <div className="contact-secondary">
+                {contactLinkedin && (
+                  <a className="inline-link" href={contactLinkedin} target="_blank" rel="noreferrer">
+                    LinkedIn <Icon name="arrow-up-right" />
+                  </a>
+                )}
+                <a className="inline-link" href={siteConfig.github} target="_blank" rel="noreferrer">
+                  GitHub <Icon name="arrow-up-right" />
+                </a>
+                {siteConfig.resumeUrl && (
+                  <a className="inline-link" href={siteConfig.resumeUrl} download>
+                    Résumé <Icon name="arrow-down" />
+                  </a>
+                )}
+              </div>
             </div>
           </div>
         </section>
